@@ -76,11 +76,11 @@ class CfgVehicles
 class CfgFunctions  {
     class bsf_lib {
         class debug {
-            file = "bsf_lib\functions";
+            file = "z\bsf\addons\lib\functions";
             class ping {};
         };
         class general {
-            file = "bsf_lib\functions";
+            file = "z\bsf\addons\lib\functions";
             class gas {};
         };
     };

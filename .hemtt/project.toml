@@ -1,0 +1,26 @@
+name = "bsf_tools"
+author = "bsf"
+prefix = "bsf"
+mainprefix = "z"
+
+[version]
+major = 1 # Overrides path when set
+minor = 0
+patch = 4
+build = 3 # Optional
+
+git_hash = 0 # Default: 8
+
+[hemtt.launch.default]
+workshop = [
+    "463939057", # ace
+    "450814997", # cba
+]
+
+parameters = [
+    "-skipIntro",           # These parameters are passed to the Arma 3 executable
+    "-noSplash",            # They do not need to be added to your list
+    "-showScriptErrors",    # You can add additional parameters here
+    "-debug",
+    "-filePatching",
+]
