@@ -51,7 +51,7 @@ class CfgVehicles
 		displayName = "Gas";				// Name displayed in the menu
 		category = "NO_CATEGORY";
 
-		function = "bsf_lib_fnc_gas";	// Name of function triggered once conditions are met
+		function = "bsf_lib_fnc_module_gas";	// Name of function triggered once conditions are met
 		functionPriority = 1;				// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		isGlobal = 1;						// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 		isTriggerActivated = 1;				// 1 for module waiting until all synced triggers are activated
@@ -61,6 +61,42 @@ class CfgVehicles
 		// Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
 		class Attributes: AttributesBase
 		{
+			class DamageIncrease: Edit
+			{
+				property = "bsf_lib_gas_DamageIncrease";
+				displayName = "Damage Increase";
+				tooltip = "Damage increase per second";
+				typeName = "NUMBER";
+				defaultValue = 0.1;
+			};
+
+			class DamageInterval: Edit
+			{
+				property = "bsf_lib_gas_DamageApplyTime";
+				displayName = "Damage Apply Time";
+				tooltip = "Interval in seconds in which the damage is applied";
+				typeName = "NUMBER";
+				defaultValue = 1;
+			};
+
+			class UnconsciousTime: Edit
+			{
+				property = "bsf_lib_gas_UnconsiousTime";
+				displayName = "Unconscious Time";
+				tooltip = "Time the player will be unconscious when he leaves the gased area.";
+				typeName = "NUMBER";
+				defaultValue = 10;
+			};
+
+
+			class UnconsciousTimeDeath: Edit
+			{
+				property = "bsf_lib_gas_UnconsiousTimeDeath";
+				displayName = "Unconscious Time Death";
+				tooltip = "Time the player will be unconscious when he leaves the gased area.";
+				typeName = "NUMBER";
+				defaultValue = 10;
+			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
@@ -82,6 +118,10 @@ class CfgFunctions  {
         class general {
             file = "z\bsf\addons\lib\functions";
             class gas {};
+        };
+		class modules {
+            file = "z\bsf\addons\lib\modules";
+            class module_gas {};
         };
     };
 };
